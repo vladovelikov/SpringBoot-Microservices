@@ -27,15 +27,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findUserById(String id) {
-        return this.userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found"));
+    public User findUserById(Long id) {
+        return this.userRepository.findById(id);
     }
 
     @Override
-    public ResponseTemplateVO getUserWithDepartment(String id) {
+    public ResponseTemplateVO getUserWithDepartment(Long id) {
         ResponseTemplateVO vo = new ResponseTemplateVO();
-        User user = this.userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found"));
-        Department department = restTemplate.getForObject("http:/localhost:9001/departments/" + user.getDepartmentId(), Department.class);
+        User user = this.userRepository.findById(id);
+        Department department = this.restTemplate.getForObject("http://localhost:9001/departments/" + user.getDepartmentId(), Department.class);
         vo.setUser(user);
         vo.setDepartment(department);
         return vo;

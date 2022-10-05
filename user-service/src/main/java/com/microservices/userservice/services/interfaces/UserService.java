@@ -6,7 +6,7 @@ import com.microservices.userservice.entities.User;
 public interface UserService {
     User saveUser(User user);
 
-    User findUserById(String id);
+    User findUserById(Long id);
 
-    ResponseTemplateVO getUserWithDepartment(String id);
+    ResponseTemplateVO getUserWithDepartment(Long id);
 }

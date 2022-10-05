@@ -19,18 +19,13 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/{id}")
-    public User findUser(@PathVariable String id) {
-        return this.userService.findUserById(id);
-    }
-
     @PostMapping("/")
     public User saveUser(@RequestBody User user) {
         return this.userService.saveUser(user);
     }
 
     @GetMapping("/{id}")
-    public ResponseTemplateVO getUserWithDepartment(@PathVariable("id") String id) {
+    public ResponseTemplateVO getUserWithDepartment(@PathVariable("id") Long id) {
         return this.userService.getUserWithDepartment(id);
     }
 }

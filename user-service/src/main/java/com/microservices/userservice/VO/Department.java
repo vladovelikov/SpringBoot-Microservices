@@ -4,13 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 public class Department {
 
-    private String id;
+    private Long id;
     private String name;
     private String address;
     private String code;
