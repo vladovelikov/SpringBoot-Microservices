@@ -8,6 +8,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -18,11 +19,8 @@ import javax.persistence.Id;
 public class Department {
 
     @Id
-    @GeneratedValue(generator = "uuid-string")
-    @GenericGenerator(
-            name = "uuid-string",
-            strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
     private String address;
     private String code;

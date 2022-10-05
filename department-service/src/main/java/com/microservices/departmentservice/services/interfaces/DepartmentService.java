@@ -5,6 +5,6 @@ import com.microservices.departmentservice.entities.Department;
 public interface DepartmentService {
     Department saveDepartment(Department department);
 
-    Department findDepartmentById(String id);
+    Department findDepartmentById(Long id);
 
 }
